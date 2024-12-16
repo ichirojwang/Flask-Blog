@@ -1,0 +1,8 @@
+{% extends "errors/error_layout.html" %}
+{% set active_page = "404" %}
+{% block content %}
+    {{ super() }}
+{% endblock content %}
+{% block error_msg %}
+    <p>You do not have permission to perform that action.</p>
+{% endblock error_msg %}
