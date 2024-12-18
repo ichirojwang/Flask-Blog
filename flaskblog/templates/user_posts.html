@@ -1,4 +1,4 @@
-{% extends "layout.html" %} 
+{% extends "layout.html" %}
 {% set active_page = "User Posts" %}
 {% block content %} 
 
@@ -8,11 +8,9 @@
 			{% set page_btn_class = "btn mb-4 " + ("btn-info" if posts.page == page_num else "btn-outline-info") %}
 			<a class="{{ page_btn_class }}" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
 		{% else %}
-			<div class="m-4">
-				...
-			</div>
+            <span>...</span>
 		{% endif %}
-	{% endfor %} 
+	{% endfor %}
 {% endmacro %}
 
 <h1 class="mb-3">Posts by {{ user.username }} ({{posts.total}}) </h1>
@@ -31,7 +29,7 @@
 		<p class="article-content">{{ post.content }}</p>
 	</div>
 </article>
-{% endfor %} 
+{% endfor %}
 
 {{ render_pagination() }}
 

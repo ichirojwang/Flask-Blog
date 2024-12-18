@@ -3,7 +3,8 @@ from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flaskblog import db
 from flask_login import current_user, login_required, login_user, logout_user
 
-from flaskblog.models import Post, User
+from flaskblog.posts.models import Post
+from flaskblog.users.models import User
 from flaskblog.users.forms import LoginForm, RegistrationForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm
 from flaskblog.users.utils import save_picture, send_reset_email
 
@@ -109,4 +110,22 @@ def reset_token(token):
         return redirect(url_for("users.login"))
     return render_template("reset_token.html", title="Reset Password", form=form)
 
-
+#
+# @users.route("/bulk_create", methods=["GET", "POST"])
+# def bulk_create_users():
+#
+#     hashed_pass = bcrypt.generate_password_hash("testing").decode('utf-8')
+#     u1 = User("BabyTron", "babytronshtyboyz@gmail.com", hashed_pass)
+#     u2 = User("John Doe", "johndoe@gmail.com", hashed_pass)
+#     u3 = User("Jane Doe", "janedoe@gmail.com", hashed_pass)
+#     u4 = User("Taro Yamada", "yamadataro@gmail.com", hashed_pass)
+#
+#     db.session.add(u1)
+#     db.session.add(u2)
+#     db.session.add(u3)
+#     db.session.add(u4)
+#
+#     db.session.commit()
+#
+#     flash("Test users created", "success")
+#     return redirect(url_for("main.home"))

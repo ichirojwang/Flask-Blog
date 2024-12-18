@@ -1,6 +1,6 @@
-{% extends "layout.html" %} 
+{% extends "layout.html" %}
 {% set active_page = "Home" %}
-{% block content %} 
+{% block content %}
 
 {% macro render_pagination() %}
 	{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
@@ -10,7 +10,7 @@
 		{% else %}
 			...
 		{% endif %}
-	{% endfor %} 
+	{% endfor %}
 {% endmacro %}
 
 {{ render_pagination() }}
@@ -27,7 +27,7 @@
 		<p class="article-content">{{ post.content }}</p>
 	</div>
 </article>
-{% endfor %} 
+{% endfor %}
 
 {{ render_pagination() }}
 

@@ -1,0 +1,11 @@
+{% macro render_pagination() %}
+    {% set endpoint = kwargs.get("endpoint") %}
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
+        {% if page_num %}
+            {% set page_btn_class = "btn mb-4 " + ("btn-info" if posts.page == page_num else "btn-outline-info") %}
+            <a class="{{ page_btn_class }}" href="{{ url_for(endpoint, page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+            <span>...</span>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

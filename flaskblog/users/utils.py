@@ -5,7 +5,7 @@ from flask import url_for, current_app
 from flask_mail import Message
 from flaskblog import mail
 
-from flaskblog.models import User
+from flaskblog.users.models import User
 
 
 def save_picture(form_picture) -> str:
